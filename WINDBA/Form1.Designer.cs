@@ -36,6 +36,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.empleadosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresa = new WINDBA.Empresa();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -56,8 +58,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresa = new WINDBA.Empresa();
             this.empleadosTableAdapter = new WINDBA.EmpresaTableAdapters.EmpleadosTableAdapter();
             this.tableAdapterManager = new WINDBA.EmpresaTableAdapters.TableAdapterManager();
             this.bFiltros = new System.Windows.Forms.Button();
@@ -67,9 +67,9 @@
             sueldoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingNavigator)).BeginInit();
             this.empleadosBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // idEmpleadoLabel
@@ -146,6 +146,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // empleadosBindingSource
+            // 
+            this.empleadosBindingSource.DataMember = "Empleados";
+            this.empleadosBindingSource.DataSource = this.empresa;
+            // 
+            // empresa
+            // 
+            this.empresa.DataSetName = "Empresa";
+            this.empresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -304,16 +314,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Sueldo";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // empleadosBindingSource
-            // 
-            this.empleadosBindingSource.DataMember = "Empleados";
-            this.empleadosBindingSource.DataSource = this.empresa;
-            // 
-            // empresa
-            // 
-            this.empresa.DataSetName = "Empresa";
-            this.empresa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // empleadosTableAdapter
             // 
             this.empleadosTableAdapter.ClearBeforeFill = true;
@@ -326,12 +326,13 @@
             // 
             // bFiltros
             // 
-            this.bFiltros.Location = new System.Drawing.Point(625, 89);
+            this.bFiltros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.bFiltros.Location = new System.Drawing.Point(613, 182);
             this.bFiltros.Name = "bFiltros";
             this.bFiltros.Size = new System.Drawing.Size(128, 46);
             this.bFiltros.TabIndex = 10;
             this.bFiltros.Text = "FILTROS";
-            this.bFiltros.UseVisualStyleBackColor = true;
+            this.bFiltros.UseVisualStyleBackColor = false;
             this.bFiltros.Click += new System.EventHandler(this.BFiltros_Click);
             // 
             // Form1
@@ -356,9 +357,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingNavigator)).EndInit();
             this.empleadosBindingNavigator.ResumeLayout(false);
             this.empleadosBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
